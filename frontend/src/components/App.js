@@ -56,7 +56,16 @@ function App() {
 
     }, [])
 
-    // попапы
+    React.useEffect(() => {
+        document.addEventListener("keydown", handleEscapeClose);
+        document.addEventListener("mousedown", handleOverlayClose);
+
+        return () => {
+            document.removeEventListener("keydown", handleEscapeClose);
+            document.removeEventListener("mousedown", handleOverlayClose);
+        };
+    });
+    //
     function handleEditAvatarClick() {
         setIsEditAvatarPopupOpen(true);
     }
@@ -71,6 +80,14 @@ function App() {
 
     function handleCardClick(card) {
         setSelectedCard({...card, isOpenCard: true});
+    }
+
+    function handleEscapeClose(e) {
+        if (e.key === "Escape") closeAllPopups();
+    }
+
+    function handleOverlayClose(e) {
+        if (e.target.classList.contains("popup")) closeAllPopups();
     }
 
     function closeAllPopups() {
