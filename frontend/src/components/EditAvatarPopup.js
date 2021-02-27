@@ -27,7 +27,8 @@ function EditAvatarPopup(props) {
         >
             <label className="popup__field">
                 <input className="popup__input popup__input_type_place" id="avatar-input" type="url"
-                       name="avatar" placeholder="Ссылка" required minLength="1" maxLength="300"
+                       name="avatar" placeholder="Ссылка"   minLength={"1"}
+                       maxLength={"30"}
                        ref={avatarRef}
                 />
                 <span className="popup__error" id="avatar-input-error"/>

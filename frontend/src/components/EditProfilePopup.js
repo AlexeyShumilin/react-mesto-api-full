@@ -42,15 +42,17 @@ function EditProfilePopup(props) {
         >
             <label className="popup__field">
                 <input className="popup__input popup__input_type_name" id="name-input"
-                       type="text" name="name" required minLength="2" maxLength="40"
-                       value={name} onChange={handleOnChangeName}
+                       type="text" name="name" minLength={"1"}
+                       maxLength={"40"}
+                       value={name} onChange={handleOnChangeName} required
                 />
                 <span className="popup__error" id="name-input-error"/>
             </label>
             <label className="popup__field">
                 <input className="popup__input popup__input_type_about" id="about-input"
-                       type="text" name="about" required minLength="2" maxLength="200"
-                       value={description} onChange={handleOnChangeDescription}
+                       type="text" name="about"  minLength={"1"}
+                       maxLength={"50"}
+                       value={description} onChange={handleOnChangeDescription} required
                 />
                 <span className="popup__error" id="about-input-error"/>
             </label>

@@ -30,7 +30,8 @@ function AddPlacePopup(props) {
         >
             <label className="popup__field">
                 <input className="popup__input popup__input_type_place" id="place-input" type="text"
-                       name="place" placeholder="Название" required minLength="1" maxLength="30"
+                       name="place" placeholder="Название" required   minLength={"1"}
+                       maxLength={"30"}
                        ref={nameRef}
                 />
                 <span className="popup__error" id="place-input-error"/>

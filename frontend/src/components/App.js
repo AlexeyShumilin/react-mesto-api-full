@@ -203,7 +203,7 @@ function App() {
             })
     }
 
-    // получение начальных данных
+
     function getData() {
         api.getAllData()
             .then(([profile, initialCards]) => {
@@ -223,7 +223,6 @@ function App() {
     return (
 
         <CurrentUserContext.Provider value={currentUser}>
-            {/* <body className="page"> */}
 
             {
                 loggedIn && <Header link="/sign-in" textLink="Выйти" email={email} onSignOut={handleSignOut}/>
@@ -307,7 +306,7 @@ function App() {
 
             <Footer/>
 
-            {/* </body> */}
+
         </CurrentUserContext.Provider>
     );
 }
