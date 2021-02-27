@@ -1,0 +1,7 @@
+.header__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 10px;
+    box-sizing: border-box;
+}

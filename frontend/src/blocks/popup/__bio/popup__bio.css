@@ -1,0 +1,13 @@
+.popup__about {
+    height: 57px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0, .2);
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.popup__about:focus {
+    outline: none;
+}

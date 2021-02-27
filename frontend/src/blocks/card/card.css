@@ -1,0 +1,18 @@
+.card {
+    max-width: 282px;
+    max-height: 361px;
+    box-sizing: border-box;
+    margin-top: 21px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 324px) {
+    .card {
+        margin-top: 20px;
+    }
+}

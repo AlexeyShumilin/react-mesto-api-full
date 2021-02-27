@@ -1,0 +1,11 @@
+.profile__container {
+    display: flex;
+    align-items: baseline;
+    max-width: 500px;
+}
+
+@media (max-width: 582px) {
+    .profile__container {
+        max-width: calc(100vw - 38px);
+    }
+}
