@@ -8,7 +8,7 @@ const {
 const userModel = require('../models/user');
 const NotFoundError = require('../errors/not-found-err');
 const BadRequestError = require('../errors/bad-request-err');
-
+const UnauthorizedErr = require('../errors/conflict-err');
 
 const getUser = (req, res, next) => {
   userModel.find({})
@@ -89,7 +89,7 @@ const createUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'MongoError' && err.code === 11000 && err.keyPattern.email) {
-        res.status(401).send({error: 'user already exist'})
+        throw new UnauthorizedErr('User with the specified email already exists ');
       } else if (err.name === 'ValidationError') {
         throw new BadRequestError('Wrong data');
       } else {
@@ -121,11 +121,11 @@ const updateUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequestError('Wrong data'));
+        next(new BadRequestError('Переданы некорректные данные'));
       } else if (err.statusCode === 404) {
         next(err);
       } else if (err.kind === 'ObjectId' || err.kind === 'CastError') {
-        next(new BadRequestError('Wrong data'));
+        next(new BadRequestError('Ошибка получения данных'));
       } else {
         next(err);
       }
