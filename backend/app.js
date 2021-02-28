@@ -48,8 +48,8 @@ app.use((req, res, next) => {
 });
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
-app.use(bodyParser.json()); // parse application/json
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(requestLogger);
 
