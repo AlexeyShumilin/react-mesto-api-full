@@ -114,18 +114,18 @@ const updateUser = (req, res, next) => {
   }, { new: true })
     .then((data) => {
       if (!data) {
-        throw new NotFoundError('Пользователь не найден');
+        throw new NotFoundError('User not found');
       }
       res.status(200)
         .send(data);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequestError('Переданы некорректные данные'));
+        next(new BadRequestError('Wrong data'));
       } else if (err.statusCode === 404) {
         next(err);
       } else if (err.kind === 'ObjectId' || err.kind === 'CastError') {
-        next(new BadRequestError('Ошибка получения данных'));
+        next(new BadRequestError('wrong data'));
       } else {
         next(err);
       }
@@ -171,9 +171,7 @@ const login = (req, res, next) => {
       );
       res.send({ token });
     })
-    .catch((err) => {
-      next(err);
-    });
+    .catch(next);
 };
 
 module.exports = {

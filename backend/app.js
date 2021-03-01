@@ -67,10 +67,23 @@ app.use('/users', auth, usersRouter);
 app.use('/cards', auth, cardsRouter);
 app.use('*', pageNotFound);
 
+app.use(errors());
 app.use(errorLogger);
 
-app.use(errors());
+app.use((err, req, res, next) => {
+  const { statusCode = 500, message } = err;
+
+  res
+    .status(statusCode)
+    .send({
+      message: statusCode === 500
+        ? 'Server error'
+        : message,
+    });
+  next();
+});
 
 app.listen(PORT, () => {
-  console.log(`${PORT}`);
+  // eslint-disable-next-line no-console
+  console.log(`On port ${PORT}`);
 });

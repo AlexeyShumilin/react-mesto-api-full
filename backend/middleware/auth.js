@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const UnauthorizedErr = require('../errors/unauthorized-err');
 
 const {
   NODE_ENV,
@@ -10,8 +9,7 @@ const auth = (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    return res.status(422).send({error: 'user already exist'});
-
+    return res.status(422).send({ error: 'user already exist' });
   }
 
   const token = authorization.replace('Bearer ', '');
@@ -19,8 +17,7 @@ const auth = (req, res, next) => {
   try {
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
   } catch (err) {
-    res.status(422).send({error: 'user already exist'})
-
+    res.status(422).send({ error: 'user already exist' });
   }
 
   req.user = payload;

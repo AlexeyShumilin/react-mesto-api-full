@@ -12,6 +12,6 @@
     "no-useless-escape": [
       "off"
     ]
-    // регулярные выражения Unnecessary escape character: \/
+
   }
 }
