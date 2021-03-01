@@ -31,8 +31,8 @@ function App() {
 
     // авторизация
     const [loggedIn, setLoggedIn] = React.useState(false);
-    const [isSuccessPopupOpen, setSuccessPopupOpen] = React.useState(false);
-    const [isFailPopupOpen, setFailPopupOpen] = React.useState(false);
+    const [isSuccessPopupOpen,setSuccessPopupOpen] = React.useState(false);
+    const [isFailPopupOpen,setFailPopupOpen] = React.useState(false);
     const [email, setEmail] = React.useState('');
     const history = useHistory();
 

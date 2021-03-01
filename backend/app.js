@@ -25,8 +25,9 @@ const {
 const { PORT = 3000 } = process.env;
 
 const allowedCors = [
-  'http://alexey.students.nomoredomains.icu',
   'https://alexey.students.nomoredomains.icu',
+  'http://alexey.students.nomoredomains.icu',
+
 ];
 
 const app = exspress();
