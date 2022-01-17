@@ -29,7 +29,7 @@ API
 
 ##### Backend   
 ``npm run start`` – Launch Server  http://localhost:3000/   
-``npm run dev`` – Launch Server ``hot reload`` на http://localhost:3000/. 
+``npm run dev`` – Launch Server ``hot reload``  http://localhost:3000/. 
 
 ##### Frontend   
 
